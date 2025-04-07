@@ -1,10 +1,5 @@
 import { defineStore } from "pinia";
-
-interface Pokemon {
-  id: number;
-  name: string;
-  // ...other properties you use...
-}
+import type { Pokemon } from "~/types/pokemon";
 
 export const useCompareStore = defineStore("compare", {
   state: (): {

@@ -1,10 +1,5 @@
 import { defineStore } from "pinia";
-
-interface Pokemon {
-  id: number;
-  name: string;
-  // ...other properties as needed...
-}
+import type { Pokemon } from "~/types/pokemon";
 
 export const usePokemonStore = defineStore("pokemon", {
   state: (): {
