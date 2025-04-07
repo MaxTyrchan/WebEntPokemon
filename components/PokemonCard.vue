@@ -1,14 +1,20 @@
 <template>
-  <NuxtLink :to="`/pokemon/${pokemon.name}`" 
-    class="bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300">
-    <img 
-      :src="pokemon.sprites.front_default" 
+  <NuxtLink :to="`/pokemon/${pokemon.name}`" class="pokemon-card">
+    <img
+      :src="pokemon.sprites.front_default"
       :alt="pokemon.name"
-      class="w-32 h-32 mx-auto"
-    >
-    <h2 class="text-xl font-semibold text-center mt-2 capitalize">
+      class="pokemon-image"
+    />
+    <h2 class="pokemon-name">
       {{ pokemon.name }}
     </h2>
+    <div class="type-container">
+      <TypeBadge
+        v-for="type in pokemon.types"
+        :key="type.type.name"
+        :type="type.type.name"
+      />
+    </div>
   </NuxtLink>
 </template>
 
@@ -16,7 +22,7 @@
 defineProps({
   pokemon: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>

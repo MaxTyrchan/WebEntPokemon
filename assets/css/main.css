@@ -1,0 +1,195 @@
+/* Layout */
+.container {
+  @apply mx-auto px-4 py-8;
+}
+
+/* Typography */
+.page-title {
+  @apply text-4xl font-bold text-center mb-8;
+}
+
+/* Cards */
+.pokemon-card {
+  @apply bg-white rounded-lg shadow-md p-4 hover:shadow-xl transition-shadow duration-300;
+}
+
+.pokemon-image {
+  @apply w-32 h-32 mx-auto;
+}
+
+.pokemon-name {
+  @apply text-xl font-semibold text-center mt-2 capitalize;
+}
+
+.type-container {
+  @apply flex flex-wrap justify-center gap-2 mt-3;
+}
+
+/* Search */
+.search-container {
+  @apply mb-8 relative;
+}
+
+.search-wrapper {
+  @apply relative max-w-md mx-auto;
+}
+
+.search-input {
+  @apply w-full px-4 py-2 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.clear-button {
+  @apply absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700;
+}
+
+/* Pokemon Grid */
+.pokemon-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+/* Detail Page */
+.back-button {
+  @apply mb-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+}
+
+.detail-container {
+  @apply bg-white rounded-lg shadow-lg p-8;
+}
+
+.detail-layout {
+  @apply flex flex-col md:flex-row items-center md:items-start gap-8;
+}
+
+.detail-image {
+  @apply w-64 h-64 object-contain;
+}
+
+.detail-content {
+  @apply flex-1;
+}
+
+.detail-title {
+  @apply text-4xl font-bold capitalize mb-4;
+}
+
+.section-title {
+  @apply text-xl font-semibold mb-2;
+}
+
+.stats-container {
+  @apply space-y-2;
+}
+
+.stat-row {
+  @apply flex items-center;
+}
+
+.stat-name {
+  @apply w-32 capitalize;
+}
+
+.stat-bar-container {
+  @apply flex-1 h-4 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.stat-value {
+  @apply ml-2 w-12 text-right;
+}
+
+/* Compare Page */
+.compare-container {
+  @apply grid md:grid-cols-2 gap-8;
+}
+
+.compare-search {
+  @apply space-y-4;
+}
+
+.compare-results {
+  @apply bg-white rounded-lg shadow-md p-4 max-h-60 overflow-y-auto;
+}
+
+.compare-item {
+  @apply flex items-center gap-4 p-2 rounded hover:bg-gray-100 cursor-pointer;
+}
+
+.compare-pokemon-image {
+  @apply w-12 h-12;
+}
+
+/* Type Badge */
+.type-badge {
+  @apply px-3 py-1 rounded-full text-white text-sm font-medium mr-2;
+}
+
+.type-normal {
+  @apply bg-gray-400;
+}
+
+.type-fire {
+  @apply bg-red-500;
+}
+
+.type-water {
+  @apply bg-blue-500;
+}
+
+.type-electric {
+  @apply bg-yellow-400;
+}
+
+.type-grass {
+  @apply bg-green-500;
+}
+
+.type-ice {
+  @apply bg-blue-300;
+}
+
+.type-fighting {
+  @apply bg-red-700;
+}
+
+.type-poison {
+  @apply bg-purple-500;
+}
+
+.type-ground {
+  @apply bg-yellow-600;
+}
+
+.type-flying {
+  @apply bg-indigo-400;
+}
+
+.type-psychic {
+  @apply bg-pink-500;
+}
+
+.type-bug {
+  @apply bg-green-600;
+}
+
+.type-rock {
+  @apply bg-yellow-800;
+}
+
+.type-ghost {
+  @apply bg-purple-700;
+}
+
+.type-dragon {
+  @apply bg-indigo-700;
+}
+
+.type-dark {
+  @apply bg-gray-800;
+}
+
+.type-steel {
+  @apply bg-gray-500;
+}
+
+.type-fairy {
+  @apply bg-pink-300;
+}

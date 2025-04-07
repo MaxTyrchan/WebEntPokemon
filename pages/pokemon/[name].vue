@@ -1,11 +1,6 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
-    <button
-      @click="navigateBack"
-      class="mb-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-    >
-      ← Back to List
-    </button>
+  <div class="container">
+    <button @click="navigateBack" class="back-button">← Back to List</button>
 
     <div v-if="error" class="text-center text-red-600">
       Failed to load Pokémon data. Please try again later.
@@ -13,20 +8,20 @@
 
     <div v-else-if="loading" class="text-center text-gray-600">Loading...</div>
 
-    <div v-else-if="pokemon" class="bg-white rounded-lg shadow-lg p-8">
-      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+    <div v-else-if="pokemon" class="detail-container">
+      <div class="detail-layout">
         <img
           :src="pokemon?.sprites?.other?.['official-artwork']?.front_default"
           :alt="pokemon.name"
-          class="w-64 h-64 object-contain"
+          class="detail-image"
         />
 
-        <div class="flex-1">
-          <h1 class="text-4xl font-bold capitalize mb-4">{{ pokemon.name }}</h1>
+        <div class="detail-content">
+          <h1 class="detail-title">{{ pokemon.name }}</h1>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">Types</h2>
-            <div class="flex flex-wrap gap-2">
+            <h2 class="section-title">Types</h2>
+            <div class="type-container">
               <TypeBadge
                 v-for="type in pokemon?.types"
                 :key="type?.type?.name"
@@ -37,33 +32,35 @@
 
           <div class="grid grid-cols-2 gap-4 mb-6">
             <div>
-              <h2 class="text-xl font-semibold mb-2">Height</h2>
+              <h2 class="section-title">Height</h2>
               <p>
-                {{ pokemon.height ? (pokemon.height * 0.1).toFixed(1) : "N/A" }}
+                {{
+                  pokemon.height ? (pokemon.height * 0.1).toFixed(1) : "N/A"
+                }}
                 m
               </p>
             </div>
             <div>
-              <h2 class="text-xl font-semibold mb-2">Weight</h2>
+              <h2 class="section-title">Weight</h2>
               <p>
-                {{ pokemon.weight ? (pokemon.weight * 0.1).toFixed(1) : "N/A" }}
+                {{
+                  pokemon.weight ? (pokemon.weight * 0.1).toFixed(1) : "N/A"
+                }}
                 kg
               </p>
             </div>
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold mb-2">Base Stats</h2>
-            <div class="space-y-2">
+            <h2 class="section-title">Base Stats</h2>
+            <div class="stats-container">
               <div
                 v-for="stat in pokemon?.stats"
                 :key="stat?.stat?.name"
-                class="flex items-center"
+                class="stat-row"
               >
-                <span class="w-32 capitalize">{{ stat?.stat?.name }}:</span>
-                <div
-                  class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden"
-                >
+                <span class="stat-name">{{ stat?.stat?.name }}:</span>
+                <div class="stat-bar-container">
                   <div
                     class="h-full bg-blue-500"
                     :style="{
@@ -71,9 +68,7 @@
                     }"
                   ></div>
                 </div>
-                <span class="ml-2 w-12 text-right">{{
-                  stat?.base_stat || 0
-                }}</span>
+                <span class="stat-value">{{ stat?.base_stat || 0 }}</span>
               </div>
             </div>
           </div>

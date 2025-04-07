@@ -1,19 +1,19 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center mb-8">Pokédex</h1>
+  <div class="container">
+    <h1 class="page-title">Pokédex</h1>
 
-    <div class="mb-8 relative">
-      <div class="relative max-w-md mx-auto">
+    <div class="search-container">
+      <div class="search-wrapper">
         <input
           v-model="searchQuery"
           type="text"
           placeholder="Search Pokémon..."
-          class="w-full px-4 py-2 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="search-input"
         />
         <button
           v-if="searchQuery"
           @click="searchQuery = ''"
-          class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+          class="clear-button"
           aria-label="Clear search"
         >
           ✕
@@ -30,10 +30,7 @@
       </NuxtLink>
     </div>
 
-    <div
-      v-if="pokemon.length"
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-    >
+    <div v-if="pokemon.length" class="pokemon-grid">
       <PokemonCard
         v-for="pokemon in filteredPokemon"
         :key="pokemon.id"
