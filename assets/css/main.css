@@ -3,6 +3,14 @@
   @apply mx-auto px-4 py-8;
 }
 
+.header {
+  @apply p-4 mx-auto flex justify-center items-center;
+}
+
+.main {
+  @apply mx-auto px-4 py-6 flex-grow;
+}
+
 /* Typography */
 .page-title {
   @apply text-4xl font-bold text-center mb-8;

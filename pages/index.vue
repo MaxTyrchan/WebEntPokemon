@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <h1 class="page-title">Pokédex</h1>
-
     <div class="search-container">
       <div class="search-wrapper">
         <input
