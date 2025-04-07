@@ -8,32 +8,32 @@
 
     <div class="compare-container">
       <div
-        v-for="(selected, index) in selectedPokemon"
+        v-for="(selected, index) in store.selectedPokemon"
         :key="index"
         class="compare-search"
       >
         <div class="relative">
           <input
-            v-model="searchQueries[index]"
+            v-model="store.searchQueries[index]"
             type="text"
             :placeholder="`Search Pokémon ${index + 1}...`"
             class="search-input"
           />
           <button
-            v-if="searchQueries[index]"
-            @click="searchQueries[index] = ''"
+            v-if="store.searchQueries[index]"
+            @click="store.clearSearchQuery(index)"
             class="clear-button"
           >
             ✕
           </button>
         </div>
 
-        <div v-if="searchQueries[index]" class="compare-results">
+        <div v-if="store.searchQueries[index]" class="compare-results">
           <ul class="space-y-2">
             <li
-              v-for="pokemon in filteredPokemon(index)"
+              v-for="pokemon in store.filteredPokemon(index)"
               :key="pokemon.id"
-              @click="selectPokemon(pokemon, index)"
+              @click="store.selectPokemon(pokemon, index)"
               class="compare-item"
             >
               <img
@@ -107,47 +107,7 @@
 </template>
 
 <script setup>
-const allPokemon = ref([]);
-const selectedPokemon = ref([null, null]);
-const searchQueries = ref(["", ""]);
-
-// More beginner friendly version
-const filteredPokemon = (index) => {
-  // Get the search query for the specified index and convert it to lowercase
-  const query = searchQueries.value[index].toLowerCase();
-
-  // Filter the list of all Pokémon
-  const results = allPokemon.value.filter((pokemon) => {
-    // Check if the pokemon exists and has a name
-    if (!pokemon || !pokemon.name) {
-      return false;
-    }
-
-    // Convert the Pokémon's name to lowercase
-    const pokemonName = pokemon.name.toLowerCase();
-
-    // Include this Pokémon if its name contains the search query
-    return pokemonName.includes(query);
-  });
-
-  // Return the filtered Pokémon list
-  return results;
-};
-
-// More advanced version
-// const filteredPokemon = (index) => {
-//   return allPokemon.value.filter(
-//     (p) =>
-//       p &&
-//       p.name &&
-//       p.name.toLowerCase().includes(searchQueries.value[index].toLowerCase())
-//   );
-// };
-
-const selectPokemon = (pokemon, index) => {
-  selectedPokemon.value[index] = pokemon;
-  searchQueries.value[index] = "";
-};
+const store = useCompareStore();
 
 const getStatBarColor = (value) => {
   if (value >= 100) return "bg-green-500";
@@ -159,22 +119,7 @@ const navigateBack = () => {
   navigateTo("/");
 };
 
-onMounted(async () => {
-  try {
-    const responses = await Promise.all(
-      Array.from({ length: 151 }, (_, i) =>
-        fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
-          .then((res) => res.json())
-          .catch((error) => {
-            console.error(`Error fetching Pokemon ${i + 1}:`, error);
-            return null;
-          })
-      )
-    );
-    allPokemon.value = responses.filter((p) => p !== null);
-  } catch (error) {
-    console.error("Error fetching Pokemon:", error);
-    allPokemon.value = [];
-  }
+onMounted(() => {
+  store.fetchAllPokemon();
 });
 </script>
