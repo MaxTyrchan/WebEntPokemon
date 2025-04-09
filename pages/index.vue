@@ -14,7 +14,7 @@
           class="clear-button"
           aria-label="Clear search"
         >
-          ✕
+          🗑️
         </button>
       </div>
     </div>
