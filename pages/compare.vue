@@ -36,11 +36,6 @@
               @click="store.selectPokemon(pokemon, index)"
               class="compare-item"
             >
-              <img
-                :src="pokemon.sprites.front_default"
-                :alt="pokemon.name"
-                class="compare-pokemon-image"
-              />
               <span class="capitalize">{{ pokemon.name }}</span>
             </li>
           </ul>
@@ -48,11 +43,6 @@
 
         <div v-if="selected" class="detail-container">
           <div class="flex items-center gap-4 mb-4">
-            <img
-              :src="selected.sprites.other['official-artwork'].front_default"
-              :alt="selected.name"
-              class="w-32 h-32 object-contain"
-            />
             <h2 class="detail-title">{{ selected.name }}</h2>
           </div>
 
