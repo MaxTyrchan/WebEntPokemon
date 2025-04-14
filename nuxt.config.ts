@@ -1,10 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
-  //devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: true },
+  modules: ['@nuxtjs/tailwindcss'],
+  tailwindcss: { cssPath: '~/assets/css/main.css' },
   app: {
-    head: {
+      head: {
       title: "Pokédex",
       meta: [
         { charset: "utf-8" },
@@ -12,5 +13,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ["~/assets/css/main.css"],
-});
+})

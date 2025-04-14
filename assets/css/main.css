@@ -1,19 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Layout */
+.default {
+  @apply min-h-screen flex flex-col bg-gray-50;
+}
+
 .container {
-  @apply mx-auto px-4 py-8;
+  @apply mx-auto px-4 py-4;
 }
 
 .header {
-  @apply p-4 mx-auto flex justify-center items-center;
+  @apply bg-gray-200 py-2 text-center;
+}
+
+.footer {
+  @apply bg-gray-200 py-2 text-center text-gray-700;
 }
 
 .main {
   @apply mx-auto px-4 py-6 flex-grow;
 }
 
+/* Error Page */
+.error-container {
+  @apply flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center;
+}
+
+.error-title {
+  @apply text-6xl font-bold text-red-500 mb-4;
+}
+
+.error-message {
+  @apply text-xl text-gray-700 mb-6;
+}
+
+.error-link {
+  @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+}
+
 /* Typography */
 .page-title {
-  @apply text-4xl font-bold text-center mb-8;
+  @apply text-4xl font-bold text-center;
 }
 
 /* Cards */
@@ -105,6 +134,10 @@
 }
 
 /* Compare Page */
+.compare-button {
+  @apply px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors;
+}
+
 .compare-container {
   @apply grid md:grid-cols-2 gap-8;
 }
