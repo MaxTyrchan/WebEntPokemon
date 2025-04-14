@@ -8,7 +8,7 @@
 }
 
 .container {
-  @apply mx-auto px-4 py-4;
+  @apply mx-auto px-4 py-8;
 }
 
 .header {
@@ -20,7 +20,7 @@
 }
 
 .main {
-  @apply mx-auto px-4 py-6 flex-grow;
+  @apply w-full px-4 py-6 flex-grow;
 }
 
 /* Error Page */
@@ -43,6 +43,10 @@
 /* Typography */
 .page-title {
   @apply text-4xl font-bold text-center;
+}
+
+.compare-title {
+  @apply text-3xl font-bold text-center;
 }
 
 /* Cards */
@@ -86,7 +90,11 @@
 
 /* Detail Page */
 .back-button {
-  @apply mb-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+  @apply absolute left-0 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+}
+
+.detail-header {
+  @apply flex items-center justify-center relative mb-8;
 }
 
 .detail-container {
@@ -106,7 +114,7 @@
 }
 
 .detail-title {
-  @apply text-4xl font-bold capitalize mb-4;
+  @apply text-3xl font-bold capitalize mb-4;
 }
 
 .section-title {
@@ -139,6 +147,10 @@
 }
 
 .compare-container {
+  @apply flex items-center justify-center relative mb-5;
+}
+
+.compare-search-container {
   @apply grid md:grid-cols-2 gap-8;
 }
 
@@ -161,76 +173,4 @@
 /* Type Badge */
 .type-badge {
   @apply px-3 py-1 rounded-full text-white text-sm font-medium mr-2;
-}
-
-.type-normal {
-  @apply bg-gray-400;
-}
-
-.type-fire {
-  @apply bg-red-500;
-}
-
-.type-water {
-  @apply bg-blue-500;
-}
-
-.type-electric {
-  @apply bg-yellow-400;
-}
-
-.type-grass {
-  @apply bg-green-500;
-}
-
-.type-ice {
-  @apply bg-blue-300;
-}
-
-.type-fighting {
-  @apply bg-red-700;
-}
-
-.type-poison {
-  @apply bg-purple-500;
-}
-
-.type-ground {
-  @apply bg-yellow-600;
-}
-
-.type-flying {
-  @apply bg-indigo-400;
-}
-
-.type-psychic {
-  @apply bg-pink-500;
-}
-
-.type-bug {
-  @apply bg-green-600;
-}
-
-.type-rock {
-  @apply bg-yellow-800;
-}
-
-.type-ghost {
-  @apply bg-purple-700;
-}
-
-.type-dragon {
-  @apply bg-indigo-700;
-}
-
-.type-dark {
-  @apply bg-gray-800;
-}
-
-.type-steel {
-  @apply bg-gray-500;
-}
-
-.type-fairy {
-  @apply bg-pink-300;
 }
