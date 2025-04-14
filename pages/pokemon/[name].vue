@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <button @click="navigateBack" class="back-button">← Back to List</button>
+    <div class="detail-header">
+      <button @click="navigateBack" class="back-button">← Back to List</button>
+    </div>
 
     <div v-if="store.error" class="text-center text-red-600">
       Failed to load Pokémon data. Please try again later.
