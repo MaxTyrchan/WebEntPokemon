@@ -19,11 +19,3 @@
       </footer>
   </div>
 </template>
-
-<script setup lang="ts">
-// You can add layout-specific logic here
-</script>
-
-<style scoped>
-/* Add any scoped styles for your layout here */
-</style>
