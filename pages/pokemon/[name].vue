@@ -14,5 +14,3 @@ const navigateBack = () => {
   navigateTo("/");
 };
 </script>
-
-
