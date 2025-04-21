@@ -26,21 +26,26 @@ export const usePokemonStore = defineStore("pokemon", {
 
   actions: {
     async fetchAllPokemon() {
+      this.loading = true;
+      this.error = false;
       try {
         const responses = await Promise.all(
           Array.from({ length: 151 }, (_, i) =>
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
-              .then((res) => res.json())
-              .catch((error) => {
+            $fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`).catch(
+              (error) => {
                 console.error(`Error fetching Pokemon ${i + 1}:`, error);
                 return null;
-              })
+              }
+            )
           )
         );
         this.allPokemon = responses.filter((p): p is Pokemon => p !== null);
       } catch (error) {
         console.error("Error fetching Pokemon:", error);
+        this.error = true;
         this.allPokemon = [];
+      } finally {
+        this.loading = false;
       }
     },
 
@@ -48,13 +53,9 @@ export const usePokemonStore = defineStore("pokemon", {
       this.loading = true;
       this.error = false;
       try {
-        const response = await fetch(
+        this.selectedPokemon = await $fetch(
           `https://pokeapi.co/api/v2/pokemon/${name}`
         );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        this.selectedPokemon = await response.json();
       } catch (err) {
         console.error("Error fetching Pokemon:", err);
         this.error = true;
