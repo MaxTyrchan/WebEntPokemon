@@ -25,12 +25,12 @@ export const useCompareStore = defineStore("compare", {
       try {
         const responses = await Promise.all(
           Array.from({ length: 151 }, (_, i) =>
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
-              .then((res) => res.json())
-              .catch((error) => {
+            $fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`).catch(
+              (error) => {
                 console.error(`Error fetching Pokemon ${i + 1}:`, error);
                 return null;
-              })
+              }
+            )
           )
         );
         // Type assertion might be needed here if the API response format isn’t certain.
