@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import type { Pokemon } from "~/types/pokemon";
+import { mockAllPokemon } from "~/types/mock-data";
 
 export const useCompareStore = defineStore("compare", {
   state: (): {
@@ -21,24 +22,8 @@ export const useCompareStore = defineStore("compare", {
   },
 
   actions: {
-    async fetchAllPokemon() {
-      try {
-        const responses = await Promise.all(
-          Array.from({ length: 151 }, (_, i) =>
-            fetch(`https://pokeapi.co/api/v2/pokemon/${i + 1}`)
-              .then((res) => res.json())
-              .catch((error) => {
-                console.error(`Error fetching Pokemon ${i + 1}:`, error);
-                return null;
-              })
-          )
-        );
-        // Type assertion might be needed here if the API response format isn’t certain.
-        this.allPokemon = responses.filter((p): p is Pokemon => p !== null);
-      } catch (error) {
-        console.error("Error fetching Pokemon:", error);
-        this.allPokemon = [];
-      }
+    fetchAllPokemon() {
+      this.allPokemon = mockAllPokemon;
     },
 
     selectPokemon(pokemon: Pokemon, index: number) {
