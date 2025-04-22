@@ -63,7 +63,7 @@
 }
 
 .type-container {
-  @apply flex flex-wrap justify-center gap-2 mt-3;
+  @apply flex flex-wrap gap-2 mt-3;
 }
 
 /* Search */
