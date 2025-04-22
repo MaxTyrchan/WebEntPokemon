@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-gray-50">
-    <header class="bg-gray-200">
-      <div class="header">
-        <NuxtLink to="/" class="flex items-center">
+  <div class="default">
+    <header class="header">
+      <div class="container">
+        <NuxtLink to="/">
           <h1 class="page-title">Pokédex</h1>
         </NuxtLink>
       </div>
@@ -12,8 +12,8 @@
       <slot />
     </main>
 
-    <footer class="bg-gray-200 py-4 text-start text-gray-700">
-      <div class="container mx-auto px-4">
+    <footer class="footer">
+      <div class="container">
         <p>&copy; Pokédex App - Entwicklung von Web-Anwendungen SS 2025</p>
       </div>
     </footer>
