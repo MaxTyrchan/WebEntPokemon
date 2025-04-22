@@ -54,10 +54,10 @@
             <div>
               <h3 class="section-title">Base Stats</h3>
               <div class="stats-container">
-                <div v-for="stat in selected.stats" :key="stat.stat.name" class="stat-row">
+                <div v-for="(stat, statIndex) in selected.stats" :key="stat.stat.name" class="stat-row">
                   <span class="stat-name">{{ stat.stat.name }}:</span>
                   <div class="stat-bar-container">
-                    <div class="h-full" :class="getStatBarColor(stat.base_stat)"
+                    <div class="h-full" :class="getStatBarColor(stat.base_stat, index, stat.stat.name)"
                       :style="{ width: `${(stat.base_stat / 255) * 100}%` }"></div>
                   </div>
                   <span class="stat-value">{{ stat.base_stat }}</span>
@@ -74,10 +74,24 @@
 <script setup>
 const store = useCompareStore();
 
-const getStatBarColor = (value) => {
-  if (value >= 100) return "bg-green-500";
-  if (value >= 50) return "bg-blue-500";
-  return "bg-red-500";
+/**
+ * Vergleicht die Stat-Werte zwischen zwei Pokémon und gibt die entsprechende Farbe zurück.
+ * @param {number} value - Der Stat-Wert des aktuellen Pokémon.
+ * @param {number} index - Der Index des aktuellen Pokémon.
+ * @param {string} statName - Der Name des Stats, der verglichen wird.
+ * @returns {string} - Die CSS-Klasse für die Farbe der Stat-Bar.
+ */
+const getStatBarColor = (value, index, statName) => {
+  const otherIndex = index === 0 ? 1 : 0; // Index des anderen Pokémon
+  const otherPokemon = store.selectedPokemon[otherIndex];
+
+  if (!otherPokemon) return "bg-blue-500"; // Wenn kein Vergleich möglich ist, bleibt es blau
+
+  const otherValue = otherPokemon.stats.find(stat => stat.stat.name === statName)?.base_stat || 0;
+
+  if (value > otherValue) return "bg-green-500"; // Aktuelles Pokémon ist besser
+  if (value < otherValue) return "bg-red-500";  // Anderes Pokémon ist besser
+  return "bg-blue-500"; // Beide sind gleich
 };
 
 const navigateBack = () => {
