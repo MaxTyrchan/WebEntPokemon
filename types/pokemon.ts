@@ -3,5 +3,11 @@ export interface Pokemon {
   name: string;
   height: number;
   weight: number;
-  // ...other properties as needed...
+  types: string[];
+  stats: {
+    base_stat: number;
+    stat: {
+      name: string;
+    };
+  }[];
 }

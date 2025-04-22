@@ -36,7 +36,9 @@
             <div>
               <h3 class="section-title">Types</h3>
               <div class="type-container">
-                <TypeBadge v-for="type in selected.types" :key="type.type.name" :type="type.type.name" />
+                <div v-for="(type, index) in selected.types" :key="index">
+                  <p>{{ type.type.name }}</p>
+                </div>
               </div>
             </div>
 

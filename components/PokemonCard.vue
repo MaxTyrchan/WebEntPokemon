@@ -1,19 +1,13 @@
 <template>
   <NuxtLink :to="`/pokemon/${pokemon.name}`" class="pokemon-card">
-    <img
-      :src="pokemon.sprites.front_default"
-      :alt="pokemon.name"
-      class="pokemon-image"
-    />
+    <img :src="pokemon.sprites.front_default" :alt="pokemon.name" class="pokemon-image" />
     <h2 class="pokemon-name">
       {{ pokemon.name }}
     </h2>
-    <div class="type-container">
-      <TypeBadge
-        v-for="type in pokemon.types"
-        :key="type.type.name"
-        :type="type.type.name"
-      />
+    <div class="type-container justify-center">
+      <div v-for="(type, index) in pokemon.types" :key="index">
+        <p>{{ type.type.name }}</p>
+      </div>
     </div>
   </NuxtLink>
 </template>

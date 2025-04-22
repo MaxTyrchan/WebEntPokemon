@@ -15,7 +15,7 @@
     <div v-else-if="store.selectedPokemon" class="detail-container">
       <div class="detail-layout">
         <img :src="store.selectedPokemon?.sprites?.other?.['official-artwork']
-            ?.front_default
+          ?.front_default
           " :alt="store.selectedPokemon.name" class="detail-image" />
 
         <div class="detail-content">
@@ -24,8 +24,9 @@
           <div class="mb-6">
             <h2 class="section-title">Types</h2>
             <div class="type-container">
-              <TypeBadge v-for="type in store.selectedPokemon?.types" :key="type?.type?.name"
-                :type="type?.type?.name" />
+              <div v-for="(type, index) in store.selectedPokemon.types" :key="index">
+                <p>{{ type.type.name }}</p>
+              </div>
             </div>
           </div>
 
