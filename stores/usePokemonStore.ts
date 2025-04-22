@@ -65,10 +65,6 @@ export const usePokemonStore = defineStore("pokemon", {
       }
     },
 
-    setSearchQuery(query: string) {
-      this.searchQuery = query;
-    },
-
     clearSearchQuery() {
       this.searchQuery = "";
     },
