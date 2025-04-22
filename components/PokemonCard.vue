@@ -3,12 +3,10 @@
     <h2 class="pokemon-name">
       {{ pokemon.name }}
     </h2>
-    <div class="type-container">
-      <TypeBadge
-        v-for="type in pokemon.types"
-        :key="type.type.name"
-        :type="type.type.name"
-      />
+    <div class="type-container justify-center">
+      <div v-for="(type, index) in pokemon.types" :key="index">
+        <p>{{ type }}</p>
+      </div>
     </div>
   </NuxtLink>
 </template>

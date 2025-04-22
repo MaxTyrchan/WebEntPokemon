@@ -14,14 +14,9 @@
 
     <div v-else-if="store.selectedPokemon" class="detail-container">
       <div class="detail-layout">
-        <img
-          :src="
-            store.selectedPokemon?.sprites?.other?.['official-artwork']
-              ?.front_default
-          "
-          :alt="store.selectedPokemon.name"
-          class="detail-image"
-        />
+        <img :src="store.selectedPokemon?.sprites?.other?.['official-artwork']
+          ?.front_default
+          " :alt="store.selectedPokemon.name" class="detail-image" />
 
         <div class="detail-content">
           <h1 class="detail-title">{{ store.selectedPokemon.name }}</h1>
@@ -29,11 +24,9 @@
           <div class="mb-6">
             <h2 class="section-title">Types</h2>
             <div class="type-container">
-              <TypeBadge
-                v-for="type in store.selectedPokemon?.types"
-                :key="type?.type?.name"
-                :type="type?.type?.name"
-              />
+              <div v-for="(type, index) in store.selectedPokemon.types" :key="index">
+                <p>{{ type }}</p>
+              </div>
             </div>
           </div>
 
@@ -65,19 +58,12 @@
           <div>
             <h2 class="section-title">Base Stats</h2>
             <div class="stats-container">
-              <div
-                v-for="stat in store.selectedPokemon?.stats"
-                :key="stat?.stat?.name"
-                class="stat-row"
-              >
+              <div v-for="stat in store.selectedPokemon?.stats" :key="stat?.stat?.name" class="stat-row">
                 <span class="stat-name">{{ stat?.stat?.name }}:</span>
                 <div class="stat-bar-container">
-                  <div
-                    class="h-full bg-blue-500"
-                    :style="{
-                      width: `${((stat?.base_stat || 0) / 255) * 100}%`,
-                    }"
-                  ></div>
+                  <div class="h-full bg-blue-500" :style="{
+                    width: `${((stat?.base_stat || 0) / 255) * 100}%`,
+                  }"></div>
                 </div>
                 <span class="stat-value">{{ stat?.base_stat || 0 }}</span>
               </div>
