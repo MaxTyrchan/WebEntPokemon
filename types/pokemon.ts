@@ -4,5 +4,10 @@ export interface Pokemon {
   height: number;
   weight: number;
   types: string[];
-  // ...other properties as needed...
+  stats: {
+    base_stat: number;
+    stat: {
+      name: string;
+    };
+  }[];
 }
