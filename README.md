@@ -1,9 +1,3 @@
-# Nuxt Tutorial - Pokedex
-
-Übungen für die Vorlesung - Entwicklung von Web-Anwendungen
-
-
-
 # 📚 Nuxt Tutorial - Pokedex
 
 Willkommen im **Nuxt Lernprojekt** für die Vorlesung "Entwicklung von Web-Anwendungen"!  
