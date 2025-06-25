@@ -8,26 +8,26 @@ Dieses Projekt ist eine Übung zur Einführung in Nuxt.js. Ziel ist es, ein neue
 
 Empfohlen für **Nuxt 3**:
 
-´´
+```bash
 npx nuxi init <projektname>
-´´
+```
 
 Alternativ mit Paketmanager und Nuxt CLI:
 
-´´
+```bash
 npm create nuxt@latest <projektname>
 # oder mit Template:
 npm create nuxt@latest -- -t ui
-´´
+```
 
 Weitere Templates:  
 [https://nuxt.com/templates](https://nuxt.com/templates)
 
 **Veraltet (für Nuxt 2, nicht empfohlen):**
 
-´´
+```bash
 npx create-nuxt-app <projektname>
-´´
+```
 
 ---
 
@@ -35,9 +35,9 @@ npx create-nuxt-app <projektname>
 
 Tailwind über Nuxt Module hinzufügen:
 
-´´
+```bash
 npx nuxi module add tailwindcss
-´´
+```
 
 Dann die `main.css` in das Projekt kopieren – idealerweise nach `assets/css/main.css`.
 
@@ -59,11 +59,11 @@ Dann die `main.css` in das Projekt kopieren – idealerweise nach `assets/css/ma
 
 Passe `nuxt.config.ts` an und füge folgende Zeile hinzu:
 
-´´
+```bash
   tailwindcss: {
     cssPath: '~/assets/css/main.css'
   }
-´´
+```
 
 Bearbeite `app.vue`, um das Layout einzubinden.
 
@@ -99,4 +99,3 @@ Passe `app.vue` an, um das Layout korrekt zu nutzen.
 - Index-Seite mit Suchfeld umgesetzt  
 - Header & Footer im Layout definiert  
 - Optional: Styling erweitert, DevTools getestet
-
