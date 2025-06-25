@@ -1,6 +1,6 @@
 # 🧭 Nuxt Übung 2 – Erstellung von Seiten und Navigation
 
-Diese Übung baut auf einem bestehenden Nuxt-Projekt auf und fokussiert sich auf das Anlegen neuer Seiten, die Navigation zwischen ihnen sowie auf Fehlerbehandlung und Styling.
+Diese Übung fokussiert sich auf das Anlegen neuer Seiten, die Navigation zwischen ihnen sowie auf Fehlerbehandlung und Styling.
 
 ## 📋 Aufgabenbeschreibung
 
